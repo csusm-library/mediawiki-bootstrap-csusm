@@ -88,7 +88,7 @@
 								<?php $renderer->renderSidebar(); ?>
 								<iframe title="contact Panel" src="http://biblio.csusm.edu/widgets/libpeople/widget.php?person=afiegen&amp;site=micro" frameborder="0" scrolling="no" width="98%" height="690"></iframe>
 							</aside>
-					<?php $contentSpanSize = "8"; } ?>
+					<?php $contentSpanSize = "9"; } ?>
 
 					<!-- ===== Article ===== -->
 					<article class="span<?php echo $contentSpanSize?>" >
