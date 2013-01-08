@@ -44,7 +44,7 @@
 		*	Outputs the entire context of the page
 		*/
 		public function execute() {
-			global $wgUser, $wgVersion, $sgSidebarOptions;
+			global $wgUser, $wgVersion, $sgSidebarOptions,$wgTitle;
 			$renderer = new BootstrapRenderer( $this, $this->data );
 
 			// Suppress warnings to prevent notices about missing indexes in $this->data
@@ -86,7 +86,9 @@
 						if( $sidebarArticle->getContent() != '' ) { ?>
 							<aside class="span3">
 								<?php $renderer->renderSidebar(); ?>
-								<iframe title="contact Panel" src="http://biblio.csusm.edu/widgets/libpeople/widget.php?person=afiegen&amp;site=micro" frameborder="0" scrolling="no" width="98%" height="690"></iframe>
+								<?php if($wgTitle != "Business Research Wiki" &&  $wgTitle != "Main Page"){ ?>
+									<iframe title="contact Panel" src="https://biblio.csusm.edu/widgets/libpeople/widget.php?person=afiegen&amp;site=micro" frameborder="0" scrolling="no" width="98%" height="720"></iframe>
+								<?php } ?>
 							</aside>
 					<?php $contentSpanSize = "9"; } ?>
 
@@ -98,6 +100,16 @@
 								<small><?php $this->html( 'subtitle' ) ?></small>
 							</h1>
 						</div>
+						<?php if($wgTitle == "Business Research Wiki" || $wgTitle == "Main Page"){
+							echo "<div class=\"row-fluid\">";
+								echo "<div class=\"column span6\">";
+									include($IP.'assets/feeds/business-guides.php');
+								echo "</div>";
+								echo "<div class=\"column span6\">";
+									echo "<iframe title=\"contact Panel\" src=\"https://biblio.csusm.edu/widgets/libpeople/widget.php?person=afiegen&amp;site=micro\" frameborder=\"0\" scrolling=\"no\" width=\"98%\" height=\"720\"></iframe>";
+								echo "</div>";
+							echo "</div>";
+						} ?>
 						<?php $this->html( 'bodycontent' ); ?>
 						<?php $renderer->renderCatLinks(); ?>
 						<?php $this->html( 'dataAfterContent' ); ?>
