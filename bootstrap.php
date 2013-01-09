@@ -32,6 +32,7 @@
 			$skinDir . '/assets/css/mediawiki.css',
 		),
 		'scripts' => array(
+			$skinDir . '/assets/js/site.js',
 			$skinDir . '/assets/js/mediawiki.js',
 			$skinDir . '/assets/js/bootstrap.min.js',
 		),

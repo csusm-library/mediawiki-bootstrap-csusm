@@ -4,3 +4,23 @@
 font-weight: normal;font-size: 13px;}
 .page-Business_Research_Wiki h1 small{display: none;}
 .page-Business_Research_Wiki .brand{display: none!important;}
+#db-layout-8865 h3{display: none;}
+.nav b{font-size:17px;}
+
+/* DB widgets*/
+.dblist-layout{margin:10px 30px 30px 15px;width:98%;z-index:2;}
+.dblist-layout .item-infolink{cursor:pointer;margin:4px 15px 1px 5px;background:url("http://biblio.csusm.edu/images/icons/info_blue_sm-pub.png") no-repeat scroll left top transparent;border:none;display:block;float:right;font-size:0;font-weight:normal;height:16px;text-indent:-9999px;width:16px;border-image:initial;}
+.dblist-layout table{border-top:none;border-collapse:collapse;margin-top:7px;padding:0px;width:100%;max-width:980px;}
+.dblist-layout th{font-weight:bold;color:#464646;text-align:left;padding:11px 6px 4px 8px;background:url(http://biblio.csusm.edu/sites/all/images/tables/bg_header_color1.jpg) repeat-x 0 100% #5797BB/*9ED7F5 /*0154A2*/;border:1px solid #DDD;border-image:initial;}
+.dblist-layout th.views-field-title{width:60%;}
+.dblist-layout th.views-field-phpcode{width:12%;}
+.dblist-layout th.views-field-field-coverage-to-value{width:18%;}
+.dblist-layout th.views-field-field-scholarly-value{width:10%;}
+.dblist-layout tr.odd td.active,.dblist-layout tr.odd td,.dblist-layout tr td{background:none repeat scroll 0 0 #FFFFFF;padding:3px 6px 1px 9px;border-bottom:1px dotted #B5B5C4;}
+.dblist-layout tr.even td.active,.dblist-layout tr.even td{background:none repeat scroll 0 0 #FAFAFA;border-bottom:1px dotted #B5B5C4;}
+.dblist-layout td.active, #db-layout td{background-color:transparent;padding:3px 6px 1px 9px;}
+.dblist-layout .item-title{display:block;padding-top:6px;margin:5px 6px 4px 0;float:left;text-decoration:none;}
+.dblist-layout .item-desc{display:none;clear:both;padding:0;margin:6px 0px 12px 0px;}
+.dblist-layout .item-desc p{margin:0;padding:0}
+#appbar #block-block-3 h2{padding:0 0 20px 50px;line-height:normal;}
+.tipsy{margin-top:5px;}
