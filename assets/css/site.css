@@ -2,8 +2,8 @@
 .navbar .brand {}
 .mw-content-ltr .editsection, .mw-content-rtl .mw-content-ltr .editsection {
 font-weight: normal;font-size: 13px;}
-.page-Business_Research_Wiki h1 small{display: none;}
-.page-Business_Research_Wiki .brand{display: none!important;}
+.page-Business_Research_Guide .redirectMsg,.page-Business_Research_Guide h1 small,.page-Business_Research_Wiki h1 small{display: none;}
+.page-Business_Research_Guide .brand,.page-Business_Research_Wiki .brand{display: none!important;}
 #db-layout-8865 h3{display: none;}
 .nav b{font-size:17px;}
 
@@ -24,3 +24,4 @@ font-weight: normal;font-size: 13px;}
 .dblist-layout .item-desc p{margin:0;padding:0}
 #appbar #block-block-3 h2{padding:0 0 20px 50px;line-height:normal;}
 .tipsy{margin-top:5px;}
+.wikiEditor-ui-toolbar .group .tool-select .label {min-width: 5px;min-height: 5px}

@@ -86,7 +86,7 @@
 						if( $sidebarArticle->getContent() != '' ) { ?>
 							<aside class="span3">
 								<?php $renderer->renderSidebar(); ?>
-								<?php if($wgTitle != "Business Research Wiki" &&  $wgTitle != "Main Page"){ ?>
+								<?php if($wgTitle != "Business Research Guide" && $wgTitle != "Business Research Wiki" &&  $wgTitle != "Main Page"){ ?>
 									<iframe title="contact Panel" src="https://biblio.csusm.edu/widgets/libpeople/widget.php?person=afiegen&amp;site=micro" frameborder="0" scrolling="no" width="98%" height="720"></iframe>
 								<?php } ?>
 							</aside>
@@ -133,7 +133,7 @@
 							<div id="db-layout"></div>
 							<script type="text/javascript">getDrupalFeed(8865)</script>
 						<?php } ?>
-						<?php if($wgTitle == "Business Research Wiki" || $wgTitle == "Main Page"){
+						<?php if($wgTitle == "Business Research Guide" || $wgTitle == "Business Research Wiki" || $wgTitle == "Main Page"){
 							echo "<div class=\"row-fluid\">";
 								echo "<div class=\"column span6\">";
 									include($IP.'assets/feeds/business-guides.php');
