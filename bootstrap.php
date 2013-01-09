@@ -13,9 +13,9 @@
 	$wgExtensionCredits['skin'][] = array(
 		'path' => __FILE__,
 		'name' => 'Bootstrap',
-		'url' => 'http://www.github.com/mtyeh411/bootstrap-mediawiki',
-		'author' => '[http://www.github.com/mtyeh411 Matt Yeh]',
-		'descriptionmsg' => 'Bootstrap skin',
+		'url' => 'https://github.com/csusm-library/mediawiki-bootstrap-csusm.git',
+		'author' => '[https://github.com/csusm-library CSUSM Library]',
+		'descriptionmsg' => 'Bootstrap theme for Mediawiki',
 	);
 
 	$wgValidSkinNames['bootstrap'] = 'Bootstrap';
