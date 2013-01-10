@@ -85,9 +85,15 @@
 					<?php $sidebarArticle = Article::newFromTitle(Title::newFromText( $sgSidebarOptions['page']), $this->data['skin']->getContext() );
 						if( $sidebarArticle->getContent() != '' ) { ?>
 							<aside class="span3">
-								<?php $renderer->renderSidebar(); ?>
+								<?php if($wgTitle == "Business Research Guide" || $wgTitle == "Business Research Wiki" ||  $wgTitle == "Main Page"){ ?>
+										<?php $renderer->renderSidebar(); ?>
+								<?php } ?>
 								<?php if($wgTitle != "Business Research Guide" && $wgTitle != "Business Research Wiki" &&  $wgTitle != "Main Page"){ ?>
-									<iframe title="contact Panel" src="https://biblio.csusm.edu/widgets/libpeople/widget.php?person=afiegen&amp;site=micro" frameborder="0" scrolling="no" width="98%" height="720"></iframe>
+									<div class="dropdown" id="leftnav">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Business Resources by Subject <icon class="icon-chevron-right"></icon></a>
+												<?php $renderer->renderSidebar(); ?>
+									</div>
+									<iframe title="contact Panel" src="https://biblio.csusm.edu/widgets/libpeople/widget.php?person=afiegen&amp;site=micro" frameborder="0" scrolling="no" width="100%" height="720" style="max-width:258pxmargin-top:20px"></iframe>
 								<?php } ?>
 							</aside>
 					<?php $contentSpanSize = "9"; } ?>
@@ -100,6 +106,7 @@
 								<small><?php $this->html( 'subtitle' ) ?></small>
 							</h1>
 						</div>
+						<?php $this->html( 'bodycontent' ); ?>
 						<?php if($wgTitle == "Business Databases"){ ?>
 							<script type="text/javascript">
 								function getDrupalFeed(feed){
@@ -143,7 +150,6 @@
 								echo "</div>";
 							echo "</div>";
 						} ?>
-						<?php $this->html( 'bodycontent' ); ?>
 						<?php $renderer->renderCatLinks(); ?>
 						<?php $this->html( 'dataAfterContent' ); ?>
 					</article>
