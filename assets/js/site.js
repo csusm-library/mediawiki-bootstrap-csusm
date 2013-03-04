@@ -17,4 +17,5 @@ jQuery(document).ready(function(){
     _gaq.push(['_trackPageview', outbound]);
     location.href = $(this).attr("href");
   });
+  jQuery('.footer ul').addClass("nav nav-pills");
 });
