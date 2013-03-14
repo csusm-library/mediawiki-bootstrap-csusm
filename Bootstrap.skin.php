@@ -22,7 +22,7 @@
 			parent::initPage( $out );
 			$out->addModuleScripts( 'skins.bootstrap' );
 			$out->addMeta("viewport", "width=device-width, initial-scale=1.0");
-			$out->addScriptFile( "//html5shiv.googlecode.com/svn/trunk/html5.js" );
+			$out->addScriptFile( "http://html5shiv.googlecode.com/svn/trunk/html5.js" );
 		}
 
 		/**
@@ -84,7 +84,7 @@
 					<!-- ===== Sidebar ===== -->
 					<?php $sidebarArticle = Article::newFromTitle(Title::newFromText( $sgSidebarOptions['page']), $this->data['skin']->getContext() );
 						if( $sidebarArticle->getContent() != '' ) { ?>
-							<div class="span3">
+							<aside class="span3">
 								<?php if($wgTitle == "Business Research Guide" || $wgTitle == "Business Research Wiki" ||  $wgTitle == "Main Page"){ ?>
 										<?php $renderer->renderSidebar(); ?>
 								<?php } ?>
@@ -95,11 +95,11 @@
 									</div>
 									<iframe title="contact Panel" src="https://biblio.csusm.edu/widgets/libpeople/widget.php?person=afiegen&amp;site=micro" frameborder="0" scrolling="no" width="100%" height="720" style="max-width:258pxmargin-top:20px"></iframe>
 								<?php } ?>
-							</div>
+							</aside>
 					<?php $contentSpanSize = "9"; } ?>
 
 					<!-- ===== Article ===== -->
-					<div class="span<?php echo $contentSpanSize?>">
+					<article class="span<?php echo $contentSpanSize?>" >
 						<div class="page-header">
 							<h1>
 								<?php $this->html( 'title' ) ?>
@@ -152,7 +152,7 @@
 						} ?>
 						<?php $renderer->renderCatLinks(); ?>
 						<?php $this->html( 'dataAfterContent' ); ?>
-					</div>
+					</article>
 				</div>
 
 				<!-- ===== Footer ===== -->
