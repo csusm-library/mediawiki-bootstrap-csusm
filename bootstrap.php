@@ -1,7 +1,7 @@
 <?php
 /**
  * Bootstrap Skin
- *
+ * 
  * @file
  * @ingroup Skins
  * @author Matt Yeh (http://www.github.com/mtyeh411)
@@ -13,47 +13,51 @@
 	$wgExtensionCredits['skin'][] = array(
 		'path' => __FILE__,
 		'name' => 'Bootstrap',
-		'url' => 'https://github.com/csusm-library/mediawiki-bootstrap-csusm.git',
-		'author' => '[https://github.com/csusm-library CSUSM Library]',
-		'descriptionmsg' => 'Bootstrap theme for Mediawiki',
+		'url' => 'http://www.github.com/mtyeh411/bootstrap-mediawiki',
+		'author' => '[http://www.github.com/mtyeh411 Matt Yeh]',
+		'descriptionmsg' => 'Bootstrap skin',
 	);
 
 	$wgValidSkinNames['bootstrap'] = 'Bootstrap';
 	$wgAutoloadClasses['SkinBootstrap'] = dirname( __FILE__ ).'/Bootstrap.skin.php';
 	$wgAutoloadClasses['BootstrapRenderer'] = dirname( __FILE__ ).'/Bootstrap.renderer.php';
+	$wgAutoloadClasses['DOMDebugPrinter'] = dirname( __FILE__ ).'/DOMDebugPrinter.php';
 	$wgExtensionMessagesFiles['Bootstrap'] = dirname( __FILE__ ).'/Bootstrap.i18n.php';
 
-	$skinDirName = explode( "/", dirname( __FILE__ ) );
-	$skinDir = array_pop( $skinDirName );
+	$skinDirParts = explode( "/", dirname( __FILE__ ) );
+	$skinDir = array_pop( $skinDirParts );
+	$skinAssets = $skinDir . '/assets/';
+	$bootstrapAssets = $skinDir . '/bootstrap/docs/assets/';
 	$wgResourceModules['skins.bootstrap'] = array(
 		'styles' => array(
-			$skinDir . '/assets/css/site.css',
-			$skinDir . '/assets/css/bootstrap.min.css',
-			$skinDir . '/assets/css/bootstrap-responsive.min.css',
-			$skinDir . '/assets/css/mediawiki.css',
+			$bootstrapAssets . 'css/bootstrap.css',
+			$bootstrapAssets . 'css/bootstrap-responsive.css',
+			$skinAssets . 'font-awesome.css',
+			$skinAssets . 'mediawiki.css',
+			$skinAssets . 'site.css'
 		),
 		'scripts' => array(
-			$skinDir . '/assets/js/site.js',
-			$skinDir . '/assets/js/mediawiki.js',
-			$skinDir . '/assets/js/bootstrap.min.js',
+			$bootstrapAssets . 'js/bootstrap.js',
+			$skinAssets . 'mediawiki.js',
+			$skinAssets . 'site.js'
 		),
 		'dependencies' => array(
-			// jquery automatically loaded
+			// jquery automatically loaded [MW > 1.19]
 		),
 		'remoteBasePath' => &$GLOBALS['wgStylePath'],
 		'localBasePath' => &$GLOBALS['wgStyleDirectory'],
-	);
+	);	
 
 	// MW 1.19 ships with jQuery 1.7.1
 	if( !version_compare( $wgVersion, '1.19', '==')) {
-	array_unshift($wgResourceModules['skins.bootstrap']['scripts'], $skinDir . '/assets/js/jquery-1.7.1.min.js');
+	array_unshift($wgResourceModules['skins.bootstrap']['scripts'], $skinAssets . 'jquery-1.7.1.min.js');
 	}
+	
+	$sgNavbarOptions['page'] = 'MediaWiki:bootstrap-navbar';
+	$sgNavbarOptions['dropdown'] = true; 
 
-	$sgNavbarOptions['page'] = 'MediaWiki:Bootstrap-navbar';
-	$sgNavbarOptions['dropdown'] = true;
+	$sgSidebarOptions['page'] = 'MediaWiki:bootstrap-sidebar';
+	$sgSidebarOptions['type'] = 'pills'; # tabs, pills, list
+	$sgSidebarOptions['dropdown'] = true;
 
-	$sgSidebarOptions['page'] = 'MediaWiki:Bootstrap-sidebar';
-	$sgSidebarOptions['type'] = 'tabs'; # tabs, pills, list
-	$sgSidebarOptions['dropdown'] = false;
-
-	$sgFooterOptions['page'] = 'MediaWiki:Bootstrap-footer';
+	$sgFooterOptions['page'] = 'MediaWiki:bootstrap-footer';
