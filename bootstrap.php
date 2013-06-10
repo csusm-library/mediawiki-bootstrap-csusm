@@ -23,7 +23,8 @@
 	$wgAutoloadClasses['BootstrapRenderer'] = dirname( __FILE__ ).'/Bootstrap.renderer.php';
 	$wgExtensionMessagesFiles['Bootstrap'] = dirname( __FILE__ ).'/Bootstrap.i18n.php';
 
-	$skinDir = array_pop( explode( "/", dirname( __FILE__ ) ) );
+	$skinDirName = explode( "/", dirname( __FILE__ ) );
+	$skinDir = array_pop( $skinDirName );
 	$wgResourceModules['skins.bootstrap'] = array(
 		'styles' => array(
 			$skinDir . '/assets/css/site.css',
