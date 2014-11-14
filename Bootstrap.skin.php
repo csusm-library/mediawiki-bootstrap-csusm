@@ -110,29 +110,29 @@
 						<?php if($wgTitle == "Business Databases"){ ?>
 							<script type="text/javascript">
 								function getDrupalFeed(feed){
-								  $.getJSON("https://biblio.csusm.edu/research_portal/databases/subjects/"+feed+"/most-useful/feed?format=json&callback=?");
-								  $.getJSON("https://biblio.csusm.edu/research_portal/databases/subjects/"+feed+"/also-useful/feed?format=json&callback=?");
+								  $.getJSON("//biblio.csusm.edu/research_portal/databases/subjects/"+feed+"/most-useful/feed?format=json&callback=?");
+								  $.getJSON("//biblio.csusm.edu/research_portal/databases/subjects/"+feed+"/also-useful/feed?format=json&callback=?");
 								  $("#db-layout").attr("class","dblist-layout");
 								  $("#db-layout").attr("id","db-layout-"+feed);
 								  $("#db-layout-"+feed).append('<table id="most-useful-'+feed+'" class="table table-hover"><tr><th class="views-field-title">Database</th><th class="views-field-phpcode">Full Text</th><th class="views-field-field-coverage-to-value">Coverage</th><th class="views-field-field-scholarly-value">Scholarly</th></tr></table>');
 								}
 
 								function topdbs(data){
-								  $.each(data.nodes, function(i,item){
-								      if(i<1){
-								           $("#most-useful-"+item.node.Nid).before('<h3>'+item.node.List_Title+'</h3>');
-								        }
-								    $("#most-useful-"+item.node.Nid).append('<tr><td><a class="item-title" href="'+item.node.Database+'">'+item.node.title+'</a>'+item.node.field_annotation_value+'</td><td>'+item.node.Full_Text+'</td><td>'+item.node.Coverage+'</td><td>'+item.node.Scholarly+'</td></tr>');
+								  $.each(data, function(i,item){
+								    if(i<1){
+								      $("#most-useful-"+item.nid_1.content).before('<h3>'+item.title_1.content+'</h3>');
+								    }
+								    $("#most-useful-"+item.nid_1.content).append('<tr><td><a class="item-title" href="'+item.nid.content+'">'+item.title.content+'</a>'+item.field_annotation_value.content+'</td><td class="item-ft">'+item.field_full_text_value.content+'</td><td class="item-coverage">'+item.field_coverage_to_value.content.replace('currentcurrent', 'current')+'</td><td>'+item.field_scholarly_value.content+'</td></tr>');
 								  });
 								}
 								function moredbs(data){
-								    if (data.nodes.length > 0){
-								    $.each(data.nodes, function(j,item){
-								        if(j<1){
-								             $("#db-layout-"+item.node.Nid+" h3").text('Most Useful');
-								        $("#most-useful-"+item.node.Nid).after('<h3>Also Useful</h3><table id="also-useful-'+item.node.Nid+'"><tr><th class="views-field-title">Database</th><th class="views-field-phpcode">Full Text</th><th class="views-field-field-coverage-to-value">Coverage</th><th class="views-field-field-scholarly-value">Scholarly</th></tr></table>');
-								          }
-								      $("#also-useful-"+item.node.Nid).append('<tr><td><a class="item-title" href="'+item.node.Database+'">'+item.node.title+'</a>'+item.node.field_annotation_value+'</td><td>'+item.node.Full_Text+'</td><td>'+item.node.Coverage+'</td><td>'+item.node.Scholarly+'</td></tr>');
+								  if (data.length > 0){
+								    $.each(data, function(j,item){
+								      if(j<1){
+								        $("#db-layout-"+item.nid_1.content+" h3").text('Most Useful');
+								        $("#most-useful-"+item.nid_1.content).after('<h3>Also Useful</h3><table id="also-useful-'+item.nid_1.content+'" class="table table-hover"><tr><th class="views-field-title">Database</th><th class="views-field-phpcode">Full Text</th><th class="views-field-field-coverage-to-value">Coverage</th><th class="views-field-field-scholarly-value">Scholarly</th></tr></table>');
+								      }
+								    $("#also-useful-"+item.nid_1.content).append('<tr><td><a class="item-title" href="'+item.nid.content+'">'+item.title.content+'</a>'+item.field_annotation_value.content+'</td><td class="item-ft">'+item.field_full_text_value.content+'</td><td class="item-coverage">'+item.field_coverage_to_value.content.replace('currentcurrent', 'current')+'</td><td>'+item.field_scholarly_value.content+'</td></tr>');
 								    });
 								  }
 								}
